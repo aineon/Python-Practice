@@ -1,0 +1,28 @@
+
+
+.bg-image {
+  background: url("../images/grass_floor.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+}
+
+.card-container {
+  margin: auto;
+}
+
+.card {
+    background-color: rgba(250, 250, 237, 0.7);
+    margin-top: 50px;
+    text-align: center; 
+    width: 70%;
+}
+
+.bg-color {
+    background-color: blue;
+}
