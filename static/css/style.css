@@ -1,28 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
 
+header {
+    position: relative;
+    height: 125px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+nav .brand-logo {
+    color: #420420;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-family: 'Tangerine', cursive;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+nav ul a {
+    color: #420420;
+}
+
+nav a { 
+    color: #420420;
+}
+
+.bg-color {
+    background-color: transparent;
+}
+
+.nav-wrapper {
+    border-bottom: 0;
+    box-shadow: none;
+}
+
+.bg-navbar:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transform: skewY(-2deg);
+    transform-origin: top left;
+    content: '';
+    background-image: linear-gradient(rgba(250, 250, 237, 0.7), rgba(251,251,240, 0.6));
+}
+
+.sub-logo {
+    font-size: 12px;
+}
+
+.home-container {
+    position: relative;
+}
+
+.home-image{ 
+    background: url("../images/grass_floor.png"); 
+}
+
+.reviews-image {
+    background: url("../images/arch_door.png"); 
+}
+
+.search-image {
+    background: url("../images/sky.png"); 
+}
 
 .bg-image {
-  background: url("../images/grass_floor.png");
+  /*background: url("../images/grass_floor.png"); */ 
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  top: 0;  
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%; 
   height: 100vh;
-  margin: 0;
+  position: absolute;
+  content: ''; 
+  z-index: -1;
+  margin-bottom:0 0 30px 0;
 }
+
+
 
 .card-container {
   margin: auto;
+  position: relative;
 }
 
 .card {
     background-color: rgba(250, 250, 237, 0.7);
-    margin-top: 50px;
+    margin-top: 150px;
     text-align: center; 
-    width: 70%;
+    position: absolute;
 }
 
-.bg-color {
-    background-color: blue;
+.card-content {
+    color: #420420;
 }
+
+footer {
+    z-index: 1;
+    bottom:0; 
+}
+
+.page-footer {
+    background-color: #420420;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+ body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }

@@ -23,6 +23,15 @@ mongo = PyMongo(app)
 def home():
     return render_template("home.html")
 
+@app.route("/reviews")
+def reviews():
+    return render_template("reviews.html")
+
+
+@app.route("/search")
+def search():
+    return render_template("search.html")
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
