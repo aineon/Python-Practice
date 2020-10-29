@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="profile-heading"> Welcome [User] </h2>
+
+<main>
+
+<div class="bg-image profile-image responsive-img"> </div>
+
+<!-- Tab Buttons-->
+<div class="tab-container">
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <div class="tab center-align">
+                <button class="tablinks" onclick="openTab(event, 'books')">My Saved Books</button>
+                <button class="tablinks" onclick="openTab(event, 'reviews')">My Reviews</button>
+                <button class="tablinks" onclick="openTab(event, 'add-review')">Add Review</button>
+            </div>
+        </div>
+    </div>
+
+<!-- Tab Content -->
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <div id="books" class="tabcontent">
+                <h3 class="center-align tab-heading">My Saved Books</h3>
+                <ul>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <div id="reviews" class="tabcontent">
+                <h3 class="center-align tab-heading">My Reviews</h3>
+                <ul>
+ 
+                 </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <div id="add-review" class="tabcontent">
+                <h3 class="center-align tab-heading">Add Review</h3>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+{% endblock %}
