@@ -40,11 +40,6 @@ nav a {
     background-color: transparent;
 }
 
-/*.nav-wrapper {
-    border-bottom: 0;
-    box-shadow: none;
-} */
-
 .bg-navbar:before {
     position: absolute;
     top: 0;
@@ -64,8 +59,21 @@ nav a {
     font-weight: 700;
 }
 
-.home-container {
+/*.home-container {
     position: relative;
+} */
+
+/* Search Bar */
+
+.search-container {
+  padding: 6px;
+  margin-top: 40px;
+  border-radius: 5px;
+  border: none;
+}
+
+.search-bar {
+  
 }
 
 /* Background Images */
@@ -87,6 +95,10 @@ nav a {
 
 .register-image {
     background: url("../images/chair_book.png")
+}
+
+.login-image {
+    background: url("../images/sky_book.png")
 }
 
 .bg-image {
@@ -176,10 +188,6 @@ footer p {
     margin: 0 auto 0 auto;
 }
 
-.search {
-    border: 1px solid #420420;
-    border-radius: 3px;
-}
 
 /* Profile */
 .profile-heading {
@@ -244,10 +252,15 @@ background-color: rgba(250, 250, 237, 0.7);
 }
 
 /* Register */
-form {
-    background-color: rgba(250, 250, 237, 0.7);
-    margin-top: 20px;
+.register-heading {
+    color:#fafaed;
+    margin-bottom: 20px;
 }
+
+form {
+    background-color: rgba(250, 250, 237, 0.7);  
+}
+
 
 form .row,
 .input-field {
@@ -256,7 +269,7 @@ form .row,
 
 .input-field label {
     color:#420420;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .no-margin {

@@ -5,7 +5,6 @@ $(document).ready(function(){
 
 
   function openTab(evt, tabName) {
-  // Declare all variables
   let i,
       tabcontent, 
       tablinks;
