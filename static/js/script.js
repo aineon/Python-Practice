@@ -1,7 +1,13 @@
 $(document).ready(function(){
     $('.sidenav').sidenav({edge: "right"});
      $('.tabs').tabs();
+       $('.collapsible').collapsible();
   });
+
+function bookSearch() {
+    
+}
+
 
 
   function openTab(evt, tabName) {
@@ -9,7 +15,7 @@ $(document).ready(function(){
       tabcontent, 
       tablinks;
 
-  // Get all elements with class="tabcontent" and hide them
+  // Change to display first tab on page load
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
@@ -24,4 +30,10 @@ $(document).ready(function(){
   // Show the current tab, and add an "active" class to the button that opened the tab
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
+}
+
+openBooksTabOnload()
+
+function openBooksTabOnload()  {
+    document.getElementById("books").style.display = "block"
 }

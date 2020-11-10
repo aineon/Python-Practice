@@ -2,7 +2,7 @@
 
 header {
     position: relative;
-    height: 125px;
+    height: 100px;
     overflow: hidden;
     z-index: 2;
 }
@@ -59,22 +59,67 @@ nav a {
     font-weight: 700;
 }
 
-/*.home-container {
-    position: relative;
-} */
 
 /* Search Bar */
 
 .search-container {
   padding: 6px;
-  margin-top: 40px;
   border-radius: 5px;
   border: none;
+  
 }
 
 .search-bar {
-  
+align-items: right;
+
 }
+
+.search-bar form {
+    background-color: none;
+    align-items: center;
+}
+
+form.search-bar input[type=text] {
+  padding: 10 10 0 10; 
+  font-size: 17px;
+  border-radius: 5px 0 0 5px;
+  float: left; 
+  width: 80%;
+  background: rgba(250, 250, 237, 0.7);
+  border-bottom: none;
+  height: 1.75em;
+ 
+}
+
+form ::placeholder {
+    color:#420420;
+    padding-left: 5px;
+}
+
+form.search-bar button {
+  padding: 3px 5px 7px 5px;
+  background: #420420;
+  color: #fafaed;
+  font-size: 17px;
+  border: 3px solid #420420;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  height: 1.75em;
+  align-content: center;
+}
+
+
+
+form.search-bar button:hover {
+  background: #5a052c;
+}
+
+form.search-bar::after {
+  content: "";
+  clear: both;
+  display: table;
+} 
 
 /* Background Images */
 .home-image{ 
@@ -113,11 +158,12 @@ nav a {
   left: 0;
   right: 0;
   width: 100%; 
-  height: 100vh;
+  height: 100%; 
   position: absolute;
   content: ''; 
   z-index: -1;
   margin-bottom:0 0 30px 0;
+  background-attachment: fixed;
 }
 
 
@@ -192,7 +238,7 @@ footer p {
 /* Profile */
 .profile-heading {
     text-align: center;
-    margin: 10px auto 10px auto;
+    margin: 0 auto 0 auto;
     color: #fafaed;
     font-weight: 700;
     font-family: 'Tangerine', cursive;
@@ -254,10 +300,10 @@ background-color: rgba(250, 250, 237, 0.7);
 /* Register */
 .register-heading {
     color:#fafaed;
-    margin-bottom: 20px;
+    margin: 0 auto 0 auto;
 }
 
-form {
+form.register {
     background-color: rgba(250, 250, 237, 0.7);  
 }
 

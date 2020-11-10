@@ -8,7 +8,7 @@
    <h3 class="center-align register-heading"> Register </h3>
 
     <div class="row no-margin">
-    <form class="col s12 m8 offset-m2 register">
+    <form class="col s10 offset-s1 m8 offset-m2 register" method="POST" action="{{ url_for('register') }}">
       <div class="row">
         <div class="input-field col s6">
           <input  id="firstname" name="firstname" type="text" class="validate" required>
@@ -52,7 +52,7 @@
                     <div class="col s12 m8 offset-m2">
             <p class="center-align">
                 Already Registered?
-                <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">Log In</a>
+                <a href="{{ url_for('login') }}" class="light-blue-text text-darken-4">Log In</a>
             </p>
         </div>
     </div>
