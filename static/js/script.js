@@ -35,5 +35,6 @@ function bookSearch() {
 openBooksTabOnload()
 
 function openBooksTabOnload()  {
-    document.getElementById("books").style.display = "block"
+    document.getElementById("books").style.display = "block";
+    document.getElementsByClassName("tablinks")[0].classList.add("active");
 }
