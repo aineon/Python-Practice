@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="bg-image edit-image responsive-img"> </div>
+
+<div class="row no-margin">
+        <form class="col s12 register m8 offset-m2" method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
+            <div class="row">
+                 <div class="input-field col s12">
+                    <input  id="title" name="title" type="text" value="{{ review.title }}" class="validate" required>
+                    <label  for="title">Title</label>
+                </div>
+            </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input  id="author" name="author" type="text" value="{{ review.author }}" class="validate" required>
+            <label  for="author">Author</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="genre" name="genre" type="text" value="{{ review.genre }}" class="validate" required>
+            <label for="genre">Genre</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="published" name="published" type="text" value="{{ review.published }}" class="validate" required>
+            <label for="published">Published</label>
+        </div>
+    </div>
+     <div class="row">
+        <div class="input-field col s12">
+            <input id="cover" name="cover" type="url" value="{{ review.cover }}" class="validate" required>
+            <label for="cover">Link to Cover Image</label>
+        </div>
+    </div>
+     <div class="row">
+        <div class="input-field col">
+            <input id="buy" name="buy" type="url" value="{{ review.buy }}" class="validate" required>
+            <label for="buy">Buy</label>
+        </div>
+    </div>
+    <div class="row">
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header">Summary <i class="fas fa-angle-down"></i></div>
+                <div class="collapsible-body">
+                    <textarea></textarea>
+                </div>
+            </li>
+            <li>
+            <div class="collapsible-header">Review <i class="fas fa-angle-down"></i></div>
+            <div class="collapsible-body"><textarea></textarea>
+            </div>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <a href="{{ url_for('reviews') }}" class="btn-small">Cancel</a>
+        </div>
+        <div class="col s6">
+        <button class="btn-small" type="submit">
+           Edit Review
+        </button>
+    </div>
+    </div>            
+        </form>
+    </div>
+{% endblock %}

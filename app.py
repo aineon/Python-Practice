@@ -115,6 +115,13 @@ def add_review():
     return render_template("add_review.html", reviews=reviews)
 
 
+@app.route("/edit_review/<review_id>", methods=["GET", "POST"])
+def edit_review(review_id):
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    reviews = mongo.db.reviews.find().sort("title", 1)
+    return render_template("edit_review.html", review=review, reviews=reviews)
+
+
 @app.route("/search")
 def search():
     return render_template("search.html")

@@ -150,6 +150,10 @@ form.search-bar::after {
     background: url("../images/sky_book.png")
 }
 
+.edit-image {
+    background: url("../images/tree_book.png")
+}
+
 .bg-image {
   background-repeat: no-repeat;
   background-position: center;
@@ -204,6 +208,26 @@ form.search-bar::after {
  display: flex;
  height:100%;
  width: 100%;
+}
+
+.collapsible {
+    border: 0;
+    margin: 0;
+}
+
+.collapsible-header {
+    background-color: rgba(250, 250, 237, 0.1);
+    padding: 5px;
+    font-weight: 600;
+}
+
+.collapsible-body {
+    padding: 0;
+}
+
+textarea {
+    border: 0;
+    padding: 0;
 }
 /* Footer */
 footer {
@@ -341,5 +365,10 @@ input {
     line-height: 1rem;
 } */
 #title {
+    margin-top: 10px;
+}
+
+.btn-small {
+    margin-bottom: 10px;
     margin-top: 10px;
 }
