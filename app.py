@@ -1,4 +1,6 @@
 import os
+import requests
+import json
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -17,6 +19,9 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 
 mongo = PyMongo(app)
+
+
+r = requests.get("https://www.googleapis.com/books/v1/volumes?q=")
 
 
 @app.route("/")
@@ -71,12 +76,12 @@ def login():
                         "profile", username=session["user"]))
             else:
                 # invalid password match
-                flash("Incorrect Username and/or Password")
+                flash("Incorrect Username or Password")
                 return redirect(url_for("login"))
 
         else:
             # username doesn't exist
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Username or Password")
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -84,7 +89,30 @@ def login():
 
 @app.route("/reviews")
 def reviews():
-    return render_template("reviews.html")
+    reviews = list(mongo.db.reviews.find())
+    return render_template("reviews.html", reviews=reviews)
+
+
+@app.route("/add_review", methods=["GET", "POST"])
+def add_review():
+    if request.method == "POST":
+        review = {
+            "title": request.form.get("title"),
+            "author": request.form.get("author"),
+            "genre": request.form.get("genre"),
+            "published": request.form.get("published"),
+            "cover": request.form.get("cover"),
+            "buy": request.form.get("buy"),
+            "summary": request.form.get(""),
+            "review": request.form.get(""),
+            "created_by": session["user"]
+        }
+        mongo.db.reviews.insert_one(review)
+        flash("Your Review Has Been Added")
+        return redirect(url_for("reviews"))
+
+    reviews = mongo.db.reviews.find().sort("title", 1)
+    return render_template("add_review.html", reviews=reviews)
 
 
 @app.route("/search")

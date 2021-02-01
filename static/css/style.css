@@ -130,6 +130,10 @@ form.search-bar::after {
     background: url("../images/field_book.png"); 
 }
 
+.add-review-image {
+    background: url("../images/night_book.png");
+}
+
 .search-image {
     background: url("../images/sky.png"); 
 }
@@ -191,8 +195,16 @@ form.search-bar::after {
     color: #420420;
 }
 
+/* Reviews */
 
-
+.card.reviews {
+    margin: auto;
+}
+.book-cover {
+ display: flex;
+ height:100%;
+ width: 100%;
+}
 /* Footer */
 footer {
     z-index: 1;
@@ -310,7 +322,8 @@ form.register {
 
 form .row,
 .input-field {
-    margin: 10px auto 5px auto;
+  /*  margin: 10px auto 5px auto; */
+  margin: 0;
 }
 
 .input-field label {
@@ -319,5 +332,14 @@ form .row,
 }
 
 .no-margin {
+    margin-top: 10px;
     margin-bottom: 0;
+}
+/*
+input {
+    height: 2rem;
+    line-height: 1rem;
+} */
+#title {
+    margin-top: 10px;
 }
