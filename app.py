@@ -117,9 +117,31 @@ def add_review():
 
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
+    if request.method == "POST":
+        update = {
+            "title": request.form.get("title"),
+            "author": request.form.get("author"),
+            "genre": request.form.get("genre"),
+            "published": request.form.get("published"),
+            "cover": request.form.get("cover"),
+            "buy": request.form.get("buy"),
+            "summary": request.form.get(""),
+            "review": request.form.get(""),
+            "created_by": session["user"]
+        }
+        mongo.db.reviews.update({"_id": ObjectId(review_id)}, update)
+        flash("")
+        return redirect(url_for("reviews"))
+
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     reviews = mongo.db.reviews.find().sort("title", 1)
     return render_template("edit_review.html", review=review, reviews=reviews)
+
+
+@app.route("/delete_review/<review_id>")
+def delete_review(review_id):
+    mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    return redirect(url_for("profile"))
 
 
 @app.route("/search")
