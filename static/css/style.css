@@ -2,10 +2,12 @@
 
 header {
     position: relative;
-    height: 100px;
+  /*  height: 100px; */
     overflow: hidden;
     z-index: 2;
-}
+    background-color: #fafaed;
+ 
+} 
 
 body {
     color: #420420;
@@ -16,13 +18,14 @@ body {
 nav {
     -webkit-box-shadow: none;
     box-shadow: none;
+    
 
 }
 
 nav .brand-logo {
     color: #420420;
     padding-left: 10px;
-    padding-top: 10px;
+  /*  padding-top: 10px; */
     font-family: 'Tangerine', cursive;
     font-weight: 700;
     font-size: 50px;
@@ -48,12 +51,32 @@ nav a {
     right: 0;
     width: 100%;
     height: 100%;
-    transform: skewY(-2deg);
-    transform-origin: top left;
+   /* transform: skewY(-2deg);
+    transform-origin: top left; 
     content: '';
-    background-image: linear-gradient(rgba(250, 250, 237, 0.9), rgba(251,251,240, 0.7));
+    background-image: linear-gradient(rgba(250, 250, 237, 0.9), rgba(251,251,240, 0.7)); */
+    background-color: #fafaed;
 }
 
+.sidenav {
+    background-color: #fafaed;
+}
+
+.sidenav-title {
+    margin-top: 7px;
+    margin-left: 7px;
+    font-family: 'Tangerine', cursive;
+    font-weight: 600;
+    font-size: 3.5rem;
+}
+
+.sidenav-overlay{
+    height:0;
+}
+
+.sidenav li a {
+    color: #420420;
+}
 .sub-logo {
     font-size: 24px;
     font-weight: 700;
@@ -122,36 +145,38 @@ form.search-bar::after {
 } 
 
 /* Background Images */
+
+
 .home-image{ 
-    background: url("../images/grass_floor.png"); 
+    background-image: url("../images/grass_floor.png"); 
 }
 
 .reviews-image {
-    background: url("../images/field_book.png"); 
+    background-image: url("../images/field_book.png"); 
 }
 
 .add-review-image {
-    background: url("../images/night_book.png");
+    background-image: url("../images/night_book.png");
 }
 
 .search-image {
-    background: url("../images/sky.png"); 
+    background-image: url("../images/sky.png"); 
 }
 
 .profile-image {
-    background: url("../images/prague.png")
+    background-image: url("../images/prague.png")
 }
 
 .register-image {
-    background: url("../images/chair_book.png")
+    background-image: url("../images/chair_book.png")
 }
 
 .login-image {
-    background: url("../images/sky_book.png")
+    background-image: url("../images/sky_book.png")
 }
 
 .edit-image {
-    background: url("../images/tree_book.png")
+    background-image: url("../images/tree_book.png")
 }
 
 .bg-image {
@@ -162,15 +187,15 @@ form.search-bar::after {
   -o-background-size: cover;
   background-size: cover;
   top: 0;  
-  bottom: 0;
+  bottom: 0; 
   left: 0;
   right: 0;
-  width: 100%; 
-  height: 100%; 
-  position: absolute;
+  min-width: 100vw; 
+  min-height: 100vh; 
+  position: relative; 
   content: ''; 
-  z-index: -1;
-  margin-bottom:0 0 30px 0;
+  /*  z-index: -1;
+margin-bottom:0 0 30px 0; */
   background-attachment: fixed;
 }
 
@@ -201,52 +226,89 @@ form.search-bar::after {
 
 /* Reviews */
 
-.card.reviews {
+.reviews {
+    width: 50%;
     margin: auto;
+    background-color: rgba(250, 250, 237, 0.7);
+    
 }
+
+
+
 .book-cover {
  display: flex;
- height:100%;
- width: 100%;
+ max-height: 250px;
+ max-width: 150px;
+ margin-top: 10px;
+ margin-left: auto;
+ margin-right: auto;
+
+} 
+
+.book-info {
+    margin-bottom: 20px;
 }
 
 .collapsible {
     border: 0;
     margin: 0;
+    box-shadow: none;
 }
 
 .collapsible-header {
     background-color: rgba(250, 250, 237, 0.1);
     padding: 5px;
     font-weight: 600;
+    border: 0;
 }
 
 .collapsible-body {
     padding: 0;
+    border-bottom: 0;
 }
 
 textarea {
     border: 0;
     padding: 0;
+    height: 4rem;
+}
+
+.review-btn-container {
+    text-align: right;
+    margin-right: 5px;
+}
+
+.review-btn-container button {
+    margin-right: 7px;
+}
+
+.reviews-page {
+    margin-top: 300px;
 }
 /* Footer */
 footer {
     z-index: 1;
     bottom:0; 
-}
-
-.page-footer {
+    width: 100%;
     background-color: #420420;
     padding-top: 0;
     padding-bottom: 0;
     color: #fafaed;
 }
+/*
+.page-footer {
+    background-color: #420420;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: #fafaed;
+    bottom: 0;
+} */
 
- body {
+  body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+  } 
 
   main {
     flex: 1 0 auto;
@@ -371,4 +433,24 @@ input {
 .btn-small {
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 768px) {
+    .form-container {
+        margin-top: 100px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .review-btn-container {
+        text-align: center;
+    }
+
+    .book-cover{
+        margin: auto;
+        margin-top: 7px;
+    }
+
 }

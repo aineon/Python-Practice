@@ -2,19 +2,13 @@
 
 {% block content %}
 
-
-
 <main>
 
 <div class="bg-image profile-image responsive-img"> </div>
 
 <section>
- <!--<div class="row no-margin">
-   <div class="col s12 m4 offset-m4">
-        <h2 class="profile-heading"> Welcome {{ username }} </h2>
-    </div> -->
    <div class="row">
-    <div class= "col m4 search-container hide-on-small-only">
+    <div class= "col m4 search-container hide-on-small-only right">
    <form class="search-bar">
         <input type="text" name="search" id="search" placeholder="Enter Author, Title or Genre...">
         <button type="submit"><i class="fas fa-search"></i></button>
@@ -52,40 +46,40 @@
         <div class="col s12 m8 offset-m2">
             <div id="reviews" class="tabcontent">
                 <h3 class="center-align tab-heading">My Reviews</h3>
-                {% if reviews|length > 0 %}
+        {% if my_reviews|length > 0 %}
     <ul>
-        {% for review in reviews %}
-        {% if session.user|lower == review.created_by|lower %}
+        {% for my_review in my_reviews %}
+        {% if session.user|lower == my_review.created_by|lower %}
         <li>
             <div class="card horizontal reviews">
               <div class="row">
                         <div class="col s12">
-                            <img  src="{{ review.cover }}" class="book-cover" >
+                            <img  src="{{ my_review.cover }}" class="book-cover" >
                        </div> 
                  </div>
             <div class="col s12 card-stacked">
-               <p class="book-info"> <strong>{{ review.title }}</strong>
-                <br> {{ review.author }} <br>
-                Genre: {{ review.genre }} <br>
-                Published: {{ review.published }} <br>
+               <p class="book-info"> <strong>{{ my_review.title }}</strong>
+                <br> {{ my_review.author }} <br>
+                Genre: {{ my_review.genre }} <br>
+                Published: {{ my_review.published }} <br>
                 </p>
                     <ul class="collapsible">
                         <li>
-                            <div class="collapsible-header">Summary</div>
-                            <div class="collapsible-body"> {{ review.summary}}</div>
+                            <div class="collapsible-header">Synopsis</div>
+                            <div class="collapsible-body"> {{ my_review.summary}}</div>
                         </li>
                         <li>
                             <div class="collapsible-header">Review</div>
-                            <div class="collapsible-body"> {{ review.review }}</div>
+                            <div class="collapsible-body"> {{ my_review.review }}</div>
                         </li>
                     </ul>
-                    {% if session.user|lower == review.created_by|lower %}
+                    {% if session.user|lower == my_review.created_by|lower %}
                         <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn-small">Delete</a>
                         <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small">Edit</a>
                     {% endif %}
                     {% endif %} 
                     {% endfor %}
-{% endif %}
+                    {% endif %}
                     </div>
                 </div>
         

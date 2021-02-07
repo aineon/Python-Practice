@@ -2,8 +2,7 @@
 
 {% block content %}
 
-<div class="bg-image add-review-image responsive-img">    </div> 
-<main>
+<main class="bg-image add-review-image responsive-img">
 <div class="row no-margin">
         <form class="col s12 register m8 offset-m2" method="POST" action="{{ url_for('add_review') }}">
             <div class="row">
@@ -43,20 +42,22 @@
         </div>
     </div>
     <div class="row">
-        <ul class="collapsible">
+         <ul class="collapsible">
             <li>
-                <div class="collapsible-header">Summary<i class="fas fa-angle-down"></i></div>
+                <div class="collapsible-header">Synopsis <i class="fas fa-angle-down"></i></div>
                 <div class="collapsible-body">
-                    <textarea placeholder="Add Summary Here"></textarea>
+                    <textarea id="synopsis" name="synopsis" type="text" class="materialize-textarea validate" required></textarea>
+                    <label for="synopsis">Synopsis</label>
                 </div>
             </li>
             <li>
-                <div class="collapsible-header">Review<i class="fas fa-angle-down"></i></div>
+                <div class="collapsible-header">Review <i class="fas fa-angle-down"></i></div>
                 <div class="collapsible-body">
-                    <textarea placeholder="Add Your Review"></textarea>
+                    <textarea id="review" name="review" type="text"  class="materialize-textarea validate" required></textarea>
+                    <label for="review">Review</label>
                 </div>
             </li>
-        </ul>
+        </ul>    
     </div>
     <div class="row">
         <button type="submit" class="col s12 m8 offset-m2 btn-small">

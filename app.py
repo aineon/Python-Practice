@@ -70,8 +70,6 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(
-                        request.form.get("username")))
                 return redirect(url_for(
                         "profile", username=session["user"]))
             else:
@@ -103,8 +101,8 @@ def add_review():
             "published": request.form.get("published"),
             "cover": request.form.get("cover"),
             "buy": request.form.get("buy"),
-            "summary": request.form.get(""),
-            "review": request.form.get(""),
+            "synopsis": request.form.get("synopsis"),
+            "review": request.form.get("review"),
             "created_by": session["user"]
         }
         mongo.db.reviews.insert_one(review)
@@ -125,8 +123,8 @@ def edit_review(review_id):
             "published": request.form.get("published"),
             "cover": request.form.get("cover"),
             "buy": request.form.get("buy"),
-            "summary": request.form.get(""),
-            "review": request.form.get(""),
+            "synopsis": request.form.get("synopsis"),
+            "review": request.form.get("review"),
             "created_by": session["user"]
         }
         mongo.db.reviews.update({"_id": ObjectId(review_id)}, update)
@@ -151,7 +149,8 @@ def search():
 
 @app.route("/profile")
 def profile():
-    return render_template("profile.html")
+    my_reviews = list(mongo.db.reviews.find({"created_by": session["user"]}))
+    return render_template("profile.html", reviews=my_reviews)
 
 
 @app.route("/logout")
