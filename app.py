@@ -1,6 +1,7 @@
 import os
 import requests
 import json
+from datetime import date
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -142,14 +143,16 @@ def delete_review(review_id):
     return redirect(url_for("profile"))
 
 
-@app.route("/search")
+@app.route("/search", methods=["GET", "POST"])
 def search():
-    return render_template("search.html")
+    search = request.form.get("search")
+    reviews = list(mongo.db.reviews.find({"$text": {"$search": search}}))
+    return render_template("reviews.html", reviews=reviews)
 
 
 @app.route("/profile")
 def profile():
-    my_reviews = list(mongo.db.reviews.find({"created_by": session["user"]}))
+    my_reviews = list(mongo.db.reviews.find())
     return render_template("profile.html", reviews=my_reviews)
 
 

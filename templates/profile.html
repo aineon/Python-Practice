@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<main>
+<main class="bg-image profile-image responsive-img">
 
-<div class="bg-image profile-image responsive-img"> </div>
+
 
 <section>
    <div class="row">
@@ -21,8 +21,8 @@
 <!-- Tab Buttons-->
 <div class="tab-container">
     <div class="row">
-        <div class="col s12 m8 offset-m2">
-            <div class="tab center-align">
+        <div class="col s12 m10 offset-m1">
+            <div class="tab">
                 <button class="tablinks" onclick="openTab(event, 'books')">My Saved Books</button>
                 <button class="tablinks" onclick="openTab(event, 'reviews')">My Reviews</button>
                 <button class="tablinks" onclick="openTab(event, 'add-review')">Add Review</button>
@@ -32,7 +32,7 @@
 
 <!-- Tab Content -->
     <div class="row">
-        <div class="col s12 m8 offset-m2">
+        <div class="col s12 m10 offset-m1">
             <div id="books" class="tabcontent">
                 <h3 class="center-align tab-heading">My Saved Books</h3>
                 <ul>
@@ -42,62 +42,67 @@
         </div>
     </div>
 
+ 
     <div class="row">
-        <div class="col s12 m8 offset-m2">
+        <div class="col s12 m10 offset-m1">   
+            {% if reviews|length > 0 %} 
             <div id="reviews" class="tabcontent">
-                <h3 class="center-align tab-heading">My Reviews</h3>
-        {% if my_reviews|length > 0 %}
-    <ul>
-        {% for my_review in my_reviews %}
-        {% if session.user|lower == my_review.created_by|lower %}
-        <li>
-            <div class="card horizontal reviews">
-              <div class="row">
-                        <div class="col s12">
-                            <img  src="{{ my_review.cover }}" class="book-cover" >
-                       </div> 
-                 </div>
-            <div class="col s12 card-stacked">
-               <p class="book-info"> <strong>{{ my_review.title }}</strong>
-                <br> {{ my_review.author }} <br>
-                Genre: {{ my_review.genre }} <br>
-                Published: {{ my_review.published }} <br>
-                </p>
-                    <ul class="collapsible">
-                        <li>
-                            <div class="collapsible-header">Synopsis</div>
-                            <div class="collapsible-body"> {{ my_review.summary}}</div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header">Review</div>
-                            <div class="collapsible-body"> {{ my_review.review }}</div>
-                        </li>
-                    </ul>
-                    {% if session.user|lower == my_review.created_by|lower %}
-                        <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn-small">Delete</a>
-                        <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small">Edit</a>
-                    {% endif %}
-                    {% endif %} 
-                    {% endfor %}
-                    {% endif %}
-                    </div>
-                </div>
-        
-       </li>
-    </ul>
-                 <a href="{{ url_for('add_review') }}" type="submit" class="btn center-align">
+               {% for review in reviews %}
+               <ul class="profile-reviews">  
+                   <li>
+                       {% if session.user|lower == review.created_by|lower %}
+                        <div class="row">
+                            <div class="col s12 m4 responsive-img">
+                                <img  src="{{ review.cover }}" class="book-cover" >
+                            </div>    
+                            <div class="col s12 m8">
+                                <p class="book-info"> <strong>{{ review.title }}</strong>
+                                <br> {{ review.author }} 
+                                <br> Genre: {{ review.genre }} 
+                                <br>Published: {{ review.published }}
+                                </p>
+
+                                <ul class="collapsible">
+                            <li>
+                                <div class="collapsible-header">Synopsis <i class="fas fa-angle-down"></i></div>
+                                <div class="collapsible-body"> {{ review.synopsis}}</div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Review <i class="fas fa-angle-down"></i></div>
+                                <div class="collapsible-body"> {{ review.review }}</div>
+                            </li>
+
+                            <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn-small">Delete</a>
+                            <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small">Edit</a>
+                        </ul>
+                            </div>
+                        </div>
+                        {% endif %} 
+                   </li>
+               </ul>
+              
+          {% endfor %} 
+        <div>
+            {% else %}
+     <h3>You have no reviews </h3>
+           <a href="{{ url_for('add_review') }}" type="submit" class="btn center-align">
             Add Review </a>
-        
             </div>
+            </div> 
+           
+             {% endif %} 
         </div>
     </div>
+        
+          
+    
     
     <div class="row">
-        <div class="col s12 m8 offset-m2">
+        <div class="col s12 m10 offset-m1">
             <div id="add-review" class="tabcontent">
                <!-- <h4 class="center-align tab-heading">Add Review</h4>-->
     <div class="row no-margin">
-        <form class="col s12 register">
+        <form class="col s12 register" method="POST" action="{{ url_for('add_review') }}">
             <div class="row">
                  <div class="input-field col s12">
                     <input  id="title" name="title" type="text" class="validate" required>
@@ -137,14 +142,20 @@
     <div class="row">
         <ul class="collapsible">
             <li>
-                <div class="collapsible-header">Summary</div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                <div class="collapsible-header">Synopsis <i class="fas fa-angle-down"></i></div>
+                <div class="collapsible-body">
+                    <textarea id="synopsis" name="synopsis" type="text" class="materialize-textarea validate" required></textarea>
+                    <label for="synopsis">Synopsis</label>
+                </div>
             </li>
             <li>
-            <div class="collapsible-header">Review</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                <div class="collapsible-header">Review <i class="fas fa-angle-down"></i></div>
+                <div class="collapsible-body">
+                    <textarea id="review" name="review" type="text"  class="materialize-textarea validate" required></textarea>
+                    <label for="review">Review</label>
+                </div>
             </li>
-        </ul>
+        </ul>    
     </div>
     <div class="row">
         <button type="submit" class="col s12 m8 offset-m2">

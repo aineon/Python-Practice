@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
      let sidenavsInstance = M.Sidenav.init(sidenavs, {edge: "right"});
      let collapsibles = document.querySelectorAll(".collapsible");
      let collapsiblesInstance = M.Collapsible.init(collapsibles);
+     let modals = document.querySelectorAll('.modal');
+     let modalInstances = M.Modal.init(modals);
   });
 
 // function bookSearch() {}
