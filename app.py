@@ -95,13 +95,15 @@ def reviews():
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     if request.method == "POST":
+        default_url = ("https://www.bookdepository.com/")
+        default_img = "static/images/no_cover.png"
         review = {
             "title": request.form.get("title"),
             "author": request.form.get("author"),
             "genre": request.form.get("genre"),
             "published": request.form.get("published"),
-            "cover": request.form.get("cover"),
-            "buy": request.form.get("buy"),
+            "cover": request.form.get("cover") or default_img,
+            "buy": request.form.get("buy") or default_url,
             "synopsis": request.form.get("synopsis"),
             "review": request.form.get("review"),
             "created_by": session["user"]

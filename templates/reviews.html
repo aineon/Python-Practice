@@ -26,16 +26,15 @@
   
  <div class="row no-margin search-container reviews-page">
   <form action="{{ url_for('search') }}" method="post" class="search-bar">
-
     <div class="input-field col m4 offset-m8 hide-on-small-only">
         <input type="text" name="search" id="search" minlength="3" required placeholder="Search title, author, genre..">
         <label for="search" class="hide"></label>
-        <button type="submit"><i class="fas fa-search"></i></button>
-       
+        <button type="submit"><i class="fas fa-search"></i></button>  
     </div>
+
     <div class="col m4 offset-m8 center-align">
          <a href="{{ url_for('reviews') }}" class="clear hide-on-small-only">Clear Search Results</a>
-          </div>
+    </div>
     </form>
 </div>
 
@@ -56,17 +55,27 @@
             <div class="col s12 m8">
                <p class="book-info"> <strong>{{ review.title }}</strong>
                 
+                            {% if session.user|lower != review.created_by|lower %}
+                        <form method="POST" action="">   
+                        <div class="heart-checkbox right">
+                            <input type="checkbox" id="heart-checkbox{{loop.index}}" name="heart-checkbox{{loop.index}}"/>
+                            <label for="heart-checkbox{{loop.index}}">
+                                Save Review!
+                            </label>
+                        </div>
+                        </form> 
+                        {% endif %}
                 
                 <br> {{ review.author }} <br>
                 Genre: {{ review.genre }} <br>
                 Published: {{ review.published }} 
                
-           <!--    <div>
-  <input type="checkbox" id="heart" checked/>
-    <label for="heart">
-        Check me!
+       <!--   <div class="heart-checkbox">
+                <input type="checkbox" id="heart-checkbox" name="heart-checkbox"/>
+               <label for="heart-checkbox">
+        Save Review!
     </label>
-</div> -->
+</div> -->  
                  <br>
                 </p>
                 </div>
@@ -113,8 +122,14 @@
        </li>
        {% endfor %}
     </ul>
+    <div class="heart-checkbox">
+                <input type="checkbox" id="save_review" name="save_review"/>
+               <label for="save_review">
+        Save Review!
+    </label>
 </div>
-
+</div>
+ 
 {% endif %}
  </section>
 

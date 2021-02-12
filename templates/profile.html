@@ -7,14 +7,28 @@
 
 
 <section>
-   <div class="row">
+ <!--  <div class="row">
     <div class= "col m4 search-container hide-on-small-only right">
    <form class="search-bar">
         <input type="text" name="search" id="search" placeholder="Enter Author, Title or Genre...">
         <button type="submit"><i class="fas fa-search"></i></button>
     </form>
     </div>
- </div>
+ </div>-->
+<div class="row no-margin search-container reviews-page">
+  <form action="{{ url_for('search') }}" method="post" class="search-bar">
+
+    <div class="input-field col m4 offset-m8 hide-on-small-only">
+        <input type="text" name="search" id="search" minlength="3" required placeholder="Search title, author, genre..">
+        <label for="search" class="hide"></label>
+        <button type="submit"><i class="fas fa-search"></i></button>
+       
+    </div>
+    <div class="col m4 offset-m8 center-align">
+         <a href="{{ url_for('reviews') }}" class="clear hide-on-small-only">Clear Search Results</a>
+    </div>
+    </form>
+</div>
 </section>       
 
 <section>

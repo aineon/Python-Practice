@@ -7,7 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
      let modalInstances = M.Modal.init(modals);
   });
 
-// function bookSearch() {}
+let flashMessage = document.getElementById("flashMessage{{loop.index}}");
+setTimeout(function() {
+    flashMessage.fadeOut("fast");
+}, 2000);
 
 
 

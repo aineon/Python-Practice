@@ -462,6 +462,9 @@ input[type="checkbox"] {
 
 
 input[type="checkbox"] + label {
+    font-family: FontAwesome\ 5 Free;
+    content: "\f004";
+    font-weight: 900;
     position: relative;
     padding-left: 35px;
     display: inline-block;
@@ -470,7 +473,7 @@ input[type="checkbox"] + label {
 }
  
 input[type="checkbox"] + label:before {
-    font-family: FontAwesome 5 Free;
+    font-family: FontAwesome\ 5 Free;
     content: "\f004";
     font-weight: 900;
     top: -11px;
@@ -486,12 +489,15 @@ input[type="checkbox"] + label:before {
 
  
 input[type="checkbox"]:checked + label:before {
+    font-family: FontAwesome\ 5 Free;
+    content: '\f004';
+    font-weight: 900;
     border: 1px solid transparent;
     background-color: transparent;
 }
  
 input[type="checkbox"]:checked + label:after {
-    font-family: FontAwesome 5 Free;
+    font-family: FontAwesome\ 5 Free;
     content: '\f004';
     font-weight: 900;
     font-size: 18px;
@@ -502,7 +508,27 @@ color: gold;
 	transition:  .5s ease;
 }
 */
+.heart-checkbox input[type='checkbox'] {
+    display:none;
+}
+ .heart-checkbox input[type='checkbox']+ label:before {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f004";
+	font-size:1.5rem;
+    cursor:pointer;
+    color: white;
+    
+ 
+ }
+ .heart-checkbox input[type='checkbox']:checked + label:before {
+     font-weight:600;
+     color: red;
+ }
 
+ .heart-checkbox label {
+     color: #420420;
+     font-weight: 500;
+ }
 /* Media Queries */
 @media only screen and (min-width: 768px) {
     .form-container {
