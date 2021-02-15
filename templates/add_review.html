@@ -4,7 +4,7 @@
 
 <main class="bg-image add-review-image responsive-img">
 <div class="row no-margin">
-        <form class="col s12 register m8 offset-m2" method="POST" action="{{ url_for('add_review') }}">
+        <form class="col s10 push-s1 register m8 offset-m2" method="POST" action="{{ url_for('add_review') }}">
             <div class="row">
                  <div class="input-field col s12">
                     <input  id="title" name="title" type="text" class="validate" required>
@@ -36,11 +36,12 @@
         </div>
     </div>
      <div class="row">
-        <div class="input-field col">
+        <div class="input-field col s12">
             <input id="buy" name="buy" type="url" class="validate">
             <label for="buy">Buy</label>
         </div>
     </div>
+    
     <div class="row">
          <ul class="collapsible">
             <li>
@@ -59,8 +60,26 @@
             </li>
         </ul>    
     </div>
+
+<div class="row txt-center">
+    <div class="rating col s6 push-s2 m6 push-m1">
+            <input id="star5" name="star" type="radio" value="&#11088; &#11088; &#11088; &#11088; &#11088;" class="radio-btn hide" />
+            <label for="star5"><i class="fas fa-star"></i></label>
+            <input id="star4" name="star" type="radio" value="&#11088; &#11088; &#11088; &#11088;" class="radio-btn hide" />
+            <label for="star4"><i class="fas fa-star"></i></label>
+            <input id="star3" name="star" type="radio" value="&#11088; &#11088; &#11088;" class="radio-btn hide" />
+            <label for="star3"><i class="fas fa-star"></i></label>
+            <input id="star2" name="star" type="radio" value="&#11088; &#11088;" class="radio-btn hide" />
+            <label for="star2"><i class="fas fa-star"></i></label>
+            <input id="star1" name="star" type="radio" value="&#11088;" class="radio-btn hide" />
+            <label for="star1"><i class="fas fa-star"></i></label>
+            <div class="clear"></div>
+        </div>
+</div>
+
+
     <div class="row">
-         <button type="submit" class="col s6 offset-s3 m4 offset-m4 btn-small">
+         <button type="submit" class="col s6 offset-s3 m4 offset-m4 btn-small add-review-btn">
                     Add Review
                 </button>
     </div>            

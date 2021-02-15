@@ -40,6 +40,7 @@
                 <button class="tablinks" onclick="openTab(event, 'books')">My Saved Books</button>
                 <button class="tablinks" onclick="openTab(event, 'reviews')">My Reviews</button>
                 <button class="tablinks" onclick="openTab(event, 'add-review')">Add Review</button>
+                <button class="tablinks" onclick="openTab(event, 'delete')">Delete Profile</button>
             </div>
         </div>
     </div>
@@ -59,12 +60,13 @@
  
     <div class="row">
         <div class="col s12 m10 offset-m1">   
-            {% if reviews|length > 0 %} 
+            
             <div id="reviews" class="tabcontent">
-               {% for review in reviews %}
+             {% if reviews|length > 0 %}
                <ul class="profile-reviews">  
+                   {% for review in reviews %}
                    <li>
-                       {% if session.user|lower == review.created_by|lower %}
+                
                         <div class="row">
                             <div class="col s12 m4 responsive-img">
                                 <img  src="{{ review.cover }}" class="book-cover" >
@@ -89,23 +91,22 @@
                             <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn-small">Delete</a>
                             <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small">Edit</a>
                         </ul>
+                        {% endfor %}
                             </div>
                         </div>
-                        {% endif %} 
+                       
                    </li>
                </ul>
-              
-          {% endfor %} 
-        <div>
-            {% else %}
-     <h3>You have no reviews </h3>
+                {% else %}
+
+          <h3>You have no reviews </h3>
            <a href="{{ url_for('add_review') }}" type="submit" class="btn center-align">
-            Add Review </a>
-            </div>
-            </div> 
-           
-             {% endif %} 
-        </div>
+            Add Review </a> 
+            {% endif %}
+         </div> 
+          
+   
+        </div> 
     </div>
         
           
@@ -181,7 +182,18 @@
     </div>
     </div>
     </div>
+<p>{{username.firstname}}</p>
+    <div class="row">
+        <div class="col s12 m10 offset-m1">
+            <div id="delete" class="tabcontent">
+                <h3 class="center-align tab-heading">Delete Profile</h3>
+                <a href="{{ url_for('delete_profile', user_id=user._id) }}" class="btn-small">Delete Profile</a>
+            </div>
+        </div>
+    </div>
+
 </div>
+
 </section>
 
 </main>

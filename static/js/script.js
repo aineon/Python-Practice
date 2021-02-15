@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
      let modalInstances = M.Modal.init(modals);
   });
 
-let flashMessage = document.getElementById("flashMessage{{loop.index}}");
+let flashMessage = document.getElementById("flashMessage{{loop.index");
 setTimeout(function() {
     flashMessage.fadeOut("fast");
 }, 2000);

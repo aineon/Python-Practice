@@ -516,7 +516,7 @@ color: gold;
     content: "\f004";
 	font-size:1.5rem;
     cursor:pointer;
-    color: white;
+    color: red;
     
  
  }
@@ -529,6 +529,81 @@ color: gold;
      color: #420420;
      font-weight: 500;
  }
+
+ .checkbox-container {
+     border: 0;
+     background-color: transparent;
+ }
+
+.txt-center {
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+.clear {
+    float: none;
+    clear: both;
+}
+
+.rating {
+    /* width: 90px; */
+    unicode-bidi: bidi-override;  
+    direction: rtl;
+    text-align: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.radio-btn {
+    text-align: center;
+}
+
+.rating > label {
+    float: right;  
+    display: inline;
+    padding: 0;
+    margin: 0 2px 0 0 ;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: grey;
+    font-size: 24px;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: gold;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    font-family: 'Font Awesome 5 Free'; 
+    content: "\f005"; 
+    font-weight: 600;
+    position: absolute;
+    left: 0; 
+    color: #FFD700;
+}
+
+.add-review-btn {
+    margin-bottom: 15px;
+}
+
+.stars {
+    background-color: transparent;
+    text-shadow: 0 0 0 yellow;
+}
+
+.flashes {
+    
+}
+
 /* Media Queries */
 @media only screen and (min-width: 768px) {
     .form-container {

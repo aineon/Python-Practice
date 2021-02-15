@@ -22,9 +22,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-r = requests.get("https://www.googleapis.com/books/v1/volumes?q=")
-
-
 @app.route("/")
 @app.route("/home")
 def home():
@@ -71,19 +68,38 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
                 return redirect(url_for(
-                        "profile", username=session["user"]))
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
-                flash("Incorrect Username or Password")
+                flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
 
         else:
             # username doesn't exist
-            flash("Incorrect Username or Password")
+            flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    # grab the session user's username from db
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session["user"]:
+        my_reviews = list(mongo.db.reviews.find(
+            {"created_by": session["user"]}).sort("title", 1))
+        user = mongo.db.users.find_one(
+            {"username": session["user"]})
+        return render_template(
+            "profile.html", username=username, reviews=my_reviews, user=user)
+
+    return redirect(url_for("login"))
 
 
 @app.route("/reviews")
@@ -106,6 +122,7 @@ def add_review():
             "buy": request.form.get("buy") or default_url,
             "synopsis": request.form.get("synopsis"),
             "review": request.form.get("review"),
+            "rating": request.form.get("star"),
             "created_by": session["user"]
         }
         mongo.db.reviews.insert_one(review)
@@ -139,6 +156,13 @@ def edit_review(review_id):
     return render_template("edit_review.html", review=review, reviews=reviews)
 
 
+@app.route("/save_review/<review_id>", methods=["GET", "POST"])
+def save_review(review_id):
+    if request.method == "POST":
+        mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+        mongo.db.books.insert_one()
+
+
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
@@ -152,18 +176,31 @@ def search():
     return render_template("reviews.html", reviews=reviews)
 
 
-@app.route("/profile")
-def profile():
-    my_reviews = list(mongo.db.reviews.find())
-    return render_template("profile.html", reviews=my_reviews)
-
-
 @app.route("/logout")
 def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/delete_profile/<user_id>")
+def delete_profile(user_id):
+    mongo.db.reviews.remove({"created_by": session['user']})
+    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    flash("Your Profile has been deleted")
+    session.clear()
+    return redirect(url_for("home"))
+
+
+"""
+@app.route("/delete_profile/<user_id>")
+def delete_profile(user_id):
+    user_id = mongo.db.users.find_one(
+        {"_id": ObjectId(user_id)})["_id"]
+    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    return render_template("home.html", user_id=user_id)
+"""
 
 
 if __name__ == "__main__":
