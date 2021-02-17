@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Tangerine:wght@400;700&display=swap');
 
 html {
     scroll-behavior: smooth;
@@ -15,6 +15,7 @@ header {
 
 body {
     color: #420420;
+    font-family: 'Lato', sans-serif;
 }
 
 /* Navbar */
@@ -208,7 +209,7 @@ form.search-bar::after {
   position: absolute; 
   content: ''; 
   z-index: 99;
-  margin-bottom:0 0 30px 0; 
+ /* margin-bottom:0 0 30px 0; */
   background-attachment: fixed;
 }
 
@@ -663,13 +664,14 @@ color: gold;
     padding-top: 15px;
     padding-bottom: 30px;
     margin-bottom: 0;
-    margin-top: 15px;   
+    margin-top: 15px;
+    font-weight: 700;   
 }
 
 .sub-404 {
     font-size: 7rem;
-    margin-bottom: 10px;
-    padding-top: 10px;
+    margin-bottom: .625rem;
+    padding-top: .625rem;
 }
 
 .p404 {
@@ -681,7 +683,15 @@ color: gold;
 .btn-404 {
  margin-bottom: 15px;
  margin-top: 15px;
+ font-size: 2rem;
+ background-color: #420420;
+ padding-bottom: 10px;
+ padding-top: 6px;
+ /*text-align: center;*/
+ border-radius: 5px;
+ height: 50px;
 }
+
 
 .btn-404:focus,
 .btn-404:visited {
@@ -690,6 +700,46 @@ color: gold;
 .btn-404:hover {
     background-color: #e61573;
 }
+
+/* search mobile */
+.mobile-search-container {
+    width: 90%;
+    margin: auto;
+    background-color: rgba(250, 250, 237, 0.8);
+    margin-top: 7.8rem;
+    border-radius: 5px;
+}
+.search-heading {
+    font-family: 'Tangerine', cursive;
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+.search-text {
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: #720737;
+}
+.search-btn {
+    margin-bottom: 15px;
+}
+
+.input-field .prefix.active {
+    color: #e61573;
+}
+
+textarea[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=url]:not(.browser-default):focus:not([readonly])+label {
+    color: #e61573;
+}
+textarea[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #e61573;
+    box-shadow: none;
+}
+
 /* Media Queries */
 @media only screen and (min-width: 768px) {
     .form-container {
@@ -697,6 +747,7 @@ color: gold;
     }
 }
 
+ 
 
 @media only screen and (max-width: 768px) {
     .review-btn-container {
@@ -710,7 +761,7 @@ color: gold;
 
     .f404 {
     width: 90%;
-    margin-top: 25px;   
+    margin-top: 1.5rem;   
     }
     
     .p404 {
@@ -721,12 +772,12 @@ color: gold;
 
     .f404-heading {
         font-size: 3.5rem;
-        padding-bottom: 15px;
+        padding-bottom: 1rem;
     }
 
     .btn-404 {
-        margin-bottom: 20px;
-        margin-top: 15px;
+        margin-bottom: 1.25rem;
+        margin-top: 1rem;
     }
     .sub-404 {
         font-size: 6rem;

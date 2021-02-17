@@ -193,6 +193,11 @@ def delete_profile(user_id):
     return redirect(url_for("home"))
 
 
+@app.route("/search_mobile")
+def search_mobile():
+    return render_template("search_mobile.html")
+
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html', title='404'), 404
