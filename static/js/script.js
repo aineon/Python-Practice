@@ -42,3 +42,29 @@ function openBooksTabOnload()  {
     document.getElementById("books").style.display = "block";
     document.getElementsByClassName("tablinks")[0].classList.add("active");
 }
+
+//Get the button:
+scrollBtn = document.getElementById("scrollToTopBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+if (pagenotfound==true);
+let header = document.getElementsByTagName("header").hide();
+let footer = document.getElementsByTagName("footer").hide();
+
+

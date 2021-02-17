@@ -193,14 +193,9 @@ def delete_profile(user_id):
     return redirect(url_for("home"))
 
 
-"""
-@app.route("/delete_profile/<user_id>")
-def delete_profile(user_id):
-    user_id = mongo.db.users.find_one(
-        {"_id": ObjectId(user_id)})["_id"]
-    mongo.db.users.remove({"_id": ObjectId(user_id)})
-    return render_template("home.html", user_id=user_id)
-"""
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html', title='404'), 404
 
 
 if __name__ == "__main__":

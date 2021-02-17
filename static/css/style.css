@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 header {
     position: relative;
   /*  height: 100px; */
@@ -40,8 +44,8 @@ nav a {
 }
 
 .bg-color {
-    background-color: transparent;
-}
+    background-color: #fafaed;
+} 
 
 .bg-navbar:before {
     position: absolute;
@@ -185,6 +189,27 @@ form.search-bar::after {
 
 .edit-image {
     background-image: url("../images/tree_book.png")
+}
+
+.image-404 {
+    background-image: url("../images/blank_page.png");
+     background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  top: 0;  
+  bottom: 0; 
+  left: 0;
+  right: 0;
+  min-width: 100vw; 
+  min-height: 100vh; 
+  position: absolute; 
+  content: ''; 
+  z-index: 99;
+  margin-bottom:0 0 30px 0; 
+  background-attachment: fixed;
 }
 
 .bg-image {
@@ -600,10 +625,71 @@ color: gold;
     text-shadow: 0 0 0 yellow;
 }
 
-.flashes {
+.scrollBtn {
+    margin-right: 70px;
+    margin-bottom: 50px;
+    position: relative;
+    background-color: #5a052c;
+    border: 1px solid #5a052c;
+    border-radius: 5px;
+    color: #fafaed;
     
+    box-shadow: none;
+    padding: 2px 5px 2px 5px;
 }
 
+.scrollBtn:hover {
+    background-color: #e61573;
+}
+
+.scrollBtn:focus,
+.scrollBtn:active,
+.scrollBtn:visited {
+    background-color: #5a052c;
+}
+
+.scrollBtn i {
+    padding: 5px;
+    font-size: 1.5rem;
+}
+
+.f404 {
+    margin: auto;
+    width: 60%;
+    background-color: rgba(250, 250, 237, 0.8);
+}
+
+.f404-heading{
+    padding-top: 15px;
+    padding-bottom: 30px;
+    margin-bottom: 0;
+    margin-top: 15px;   
+}
+
+.sub-404 {
+    font-size: 7rem;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.p404 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+.btn-404 {
+ margin-bottom: 15px;
+ margin-top: 15px;
+}
+
+.btn-404:focus,
+.btn-404:visited {
+    background-color: #420420;
+}
+.btn-404:hover {
+    background-color: #e61573;
+}
 /* Media Queries */
 @media only screen and (min-width: 768px) {
     .form-container {
@@ -622,4 +708,28 @@ color: gold;
         margin-top: 7px;
     }
 
+    .f404 {
+    width: 90%;
+    margin-top: 25px;   
+    }
+    
+    .p404 {
+        font-size: 1.25rem;
+        margin-bottom: 0;
+        font-weight: 500;
+    }
+
+    .f404-heading {
+        font-size: 3.5rem;
+        padding-bottom: 15px;
+    }
+
+    .btn-404 {
+        margin-bottom: 20px;
+        margin-top: 15px;
+    }
+    .sub-404 {
+        font-size: 6rem;
+        margin-bottom: 7px;
+    }
 }
