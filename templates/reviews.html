@@ -25,107 +25,86 @@
     </div>  -->
   
  <div class="row no-margin search-container reviews-page">
-  <form action="{{ url_for('search') }}" method="post" class="search-bar">
+  <form action="{{ url_for('search') }}" method="post" id="search-submit" class="search-bar">
     <div class="input-field col m4 offset-m8 hide-on-small-only">
-        <input type="text" name="search" id="search" minlength="3" required placeholder="Search title, author, genre..">
+        <input type="text" name="search" id="search" minlength="3" class="review-search" required placeholder="Search title, author, genre..">
         <label for="search" class="hide"></label>
-        <button type="submit"><i class="fas fa-search"></i></button>  
+       <button type="submit" id="submitBtn"><i class="fas fa-search"></i></button> <br>
+       <a href="{{ url_for('reviews') }}" class="btn-small" id="clear-results">Clear Search Results</a>      
     </div>
-
     <div class="col m4 offset-m8 center-align">
-         <a href="{{ url_for('reviews') }}" class="clear hide-on-small-only">Clear Search Results</a>
+         
     </div>
+   
     </form>
 </div>
 
-
 <section>
-{% if reviews|length > 0 %}
-<div class="review-container">
-    <ul>
+ {% if reviews|length > 0 %}
+    <div class="review-container">
+        <ul>
         {% for review in reviews %}
-        <li>
-            <div class="reviews">
-              
-                <div class="row">
-                    <div class="col s12 m4 responsive-img cover-img">
-                        <img  src="{{ review.cover }}" class="book-cover" >
-                        <small><em>Created by: {{ review.created_by }}</em><br> {{ review.created }}</small>
-                    </div>    
-                    <div class="col s12 m8">
-                        <p class="book-info"> <strong>{{ review.title }}</strong>
-               
+            <li>
+                <div class="reviews">
+                    <div class="row">
+                        <div class="col s12 m4 responsive-img">
+                            <img  src="{{ review.cover }}" alt="cover image for {{review.title}}" class="book-cover" >
+                            <small><em>Created by: {{ review.created_by }},<br> {{ review.date_created }}</em></small>
+                       </div>     
+                        <div class="col s12 m8">
+                            <p class="book-info"> <strong class="book-title">{{ review.title }}</strong>
+                            
+                        
+                            <br> {{ review.author }} 
+                            <br> Genre: {{ review.genre }} 
+                            <br>Published: {{ review.published }}
+                            </p>
+                          
+                            <div class="review-rating" >
+                             {{ review.rating}}
+                            </div>
+                            
+                            <div>
                             {% if session.user|lower != review.created_by|lower %}
-                        <form method="POST" action="">   
-                        <div class="heart-checkbox right">
-                            <button type="submit" class="checkbox-container hvr-pulse">
-                            <input type="checkbox" id="heart-checkbox{{loop.index}}" name="heart-checkbox{{loop.index}}" value="save" class=""/>
-                            <label for="heart-checkbox{{loop.index}}">
-                                Save Review!
-                            </label>
-                            </button>
-                        </div>
-                        </form> 
+                                <form method="POST" action="">   
+                                <div class="heart-checkbox">
+                                    <input type="checkbox" id="heart-checkbox{{loop.index}}" name="heart-checkbox{{loop.index}}"/>
+                                    <label for="heart-checkbox{{loop.index}}">
+                                        Save Review!
+                                    </label>
+                                </div>
+                                </form> 
                         {% endif %}
-                
-                        <br> {{ review.author }} <br>
-                        Genre: {{ review.genre }} <br>
-                        Published: {{ review.published }}<br>
-                </p>
-            </div>
-
-                <div class="row">
-                    <ul class="collapsible">
-                        <li>
-                            <div class="collapsible-header">Synopsis</div>
-                            <div class="collapsible-body"> {{ review.synopsis}}</div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header">Review</div>
-                            <div class="collapsible-body"> {{ review.review }}</div>
-                        </li>
-                    </ul>
-                    <div class="stars">
-                        {{ review.rating }}
-                 
-                    </div>
-
-                    {% if session.user|lower == review.created_by|lower %}
-                    <div class="review-btn-container">
-                        <button type="submit" class="btn-small"><i class="fas fa-heart"></i>Save</button>
-                        <a href="{{ review.buy }}" class="btn-small">Buy</a>
-                    </div>
-
-
-
-                  <!-- <div class="review-btn-container">
-                        <button data-target="confirm_delete" class="btn modal-trigger">Delete</button>
-                        <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small">Edit</a>
-                    </div>
-                    <div id="confirm_delete" class="modal">
-    <div class="modal-content">
-      <h4>Confirm Delete</h4>
-      <p>Are you sure you want to delete this review?</p>
-    </div>
-    <div class="modal-footer">
-      <button href="#!" class="modal-close btn-small">Cancel</button>
-      <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn-small">Delete</a>
-    </div>
-  </div>--> 
-  
-                        {% endif %} 
-                    </div>  
+                          </div>
+                        </div> 
+                   <div class="row"> 
+                        <ul class="collapsible">
+                            <li>
+                                <div class="collapsible-header">Synopsis <i class="fas fa-angle-down"></i></div>
+                                <div class="collapsible-body"> {{ review.synopsis}}</div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Review <i class="fas fa-angle-down"></i></div>
+                                <div class="collapsible-body"> {{ review.review }}</div>
+                            </li>
+                        </ul>
+                    <a href="{{ review.buy }}" target="_blank" class="btn-small buy-btn right">Buy</a>
+                    </div> 
                     </div>
                 </div>
-       </li>
+            </li>
        {% endfor %}
-    </ul>
-</div>
-{% endif %}
- </section>
- <div>
-<button onclick="topFunction()" id="scrollToTopBtn" class="right scrollBtn hvr-grow"><i class="fas fa-angle-double-up"></i></button>
-</div>
+        </ul>
+    </div>
+    {% else %}
+    <h3 class="center-align">No Results Found</h3>
+    {% endif %}
+
+    <div>
+        <button id="scrollToTop" title="Go to top" class="btn-small"><i class="fas fa-angle-double-up"></i></button>
+    </div>
+</section>
+
 </main>
 
 

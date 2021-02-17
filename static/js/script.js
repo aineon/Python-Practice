@@ -4,14 +4,73 @@ document.addEventListener('DOMContentLoaded', function () {
      let collapsibles = document.querySelectorAll(".collapsible");
      let collapsiblesInstance = M.Collapsible.init(collapsibles);
      let modals = document.querySelectorAll('.modal');
-     let modalInstances = M.Modal.init(modals);
+     let modalInstances = M.Modal.init(modals); 
   });
-
+/*
+     let searchInput = document.querySelector("input[name='search']");
+     let search = searchInput ? searchInput.value : "";
+     let clearBtn = document.getElementById("clear-results");
+     function manageButton() {
+         if (searchInput.value != "") {
+             clearBtn.style.display = "block";
+         } else {
+             clearBtn.style.display = "none";
+         }
+     };
+     manageButton();
+  /*
 let flashMessage = document.getElementById("flashMessage{{loop.index");
 setTimeout(function() {
     flashMessage.fadeOut("fast");
 }, 2000);
+*/
+/*
+document.getElementById("search-submit").addEventListener("submit", manageBtn);
 
+document.getElementById("search").addEventListener("input", manageBtn)
+
+document.getElementById("submitBtn").addEventListener("click", manageBtn)
+function manageBtn() {
+let clearBtn = document.getElementById("clear-results");
+clearBtn.style.display = "block";
+};
+*/
+
+document.getElementById("submitBtn").addEventListener("click", manageBtn)
+let clearBtn = document.getElementById("clear-results");
+function showBtn() {
+    clearBtn = setTimeout((function(){ 
+        manageBtn(); 
+    }, 10000))
+};  
+
+function manageBtn() {
+    clearBtn.style.display = "block";
+}
+  
+
+
+//Get the button:
+let scrollBtn = document.getElementById("scrollToTop");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+};
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+};
+
+document.getElementById("scrollToTop").addEventListener("click", topFunction);
 
 
   function openTab(evt, tabName) {
@@ -43,28 +102,8 @@ function openBooksTabOnload()  {
     document.getElementsByClassName("tablinks")[0].classList.add("active");
 }
 
-//Get the button:
-scrollBtn = document.getElementById("scrollToTopBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    scrollBtn.style.display = "block";
-  } else {
-    scrollBtn.style.display = "none";
-  }
-}
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-
-if (pagenotfound==true);
-let header = document.getElementsByTagName("header").hide();
-let footer = document.getElementsByTagName("footer").hide();
 
 

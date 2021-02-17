@@ -280,7 +280,7 @@ margin-bottom:0 0 30px 0; */
 } 
 
 .book-info {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .collapsible {
@@ -466,11 +466,8 @@ form .row,
     margin-top: 10px;
     margin-bottom: 0;
 }
-/*
-input {
-    height: 2rem;
-    line-height: 1rem;
-} */
+
+
 #title {
     margin-top: 10px;
 }
@@ -481,59 +478,18 @@ input {
     border-radius: 3px;
 }
 
-/*
-input[type="checkbox"] {
-    display: none;
+.review-rating {
+    margin-bottom: 5px;
 }
 
+.buy-btn {
+    margin-right: 15px;
+}
 
-input[type="checkbox"] + label {
-    font-family: FontAwesome\ 5 Free;
-    content: "\f004";
-    font-weight: 900;
-    position: relative;
-    padding-left: 35px;
-    display: inline-block;
-    font-size: 16px;
-    
+.heart-checkbox {
+    margin-bottom:  5px;
 }
- 
-input[type="checkbox"] + label:before {
-    font-family: FontAwesome\ 5 Free;
-    content: "\f004";
-    font-weight: 900;
-    top: -11px;
-    left: -8px;
-    border: 1px solid transparent;    
-    padding: 10px;
-    border-radius: 3px;
-    display: block;
-    position: absolute;
-	transition:  .5s ease;
-}
- 
 
- 
-input[type="checkbox"]:checked + label:before {
-    font-family: FontAwesome\ 5 Free;
-    content: '\f004';
-    font-weight: 900;
-    border: 1px solid transparent;
-    background-color: transparent;
-}
- 
-input[type="checkbox"]:checked + label:after {
-    font-family: FontAwesome\ 5 Free;
-    content: '\f004';
-    font-weight: 900;
-    font-size: 18px;
-    position: absolute;
-    top: -1px;
-    left: 1px;
-color: gold; 
-	transition:  .5s ease;
-}
-*/
 .heart-checkbox input[type='checkbox'] {
     display:none;
 }
@@ -626,32 +582,33 @@ color: gold;
     text-shadow: 0 0 0 yellow;
 }
 
-.scrollBtn {
-    margin-right: 70px;
-    margin-bottom: 50px;
-    position: relative;
+#scrollToTop {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 70px;
     background-color: #5a052c;
     border: 1px solid #5a052c;
     border-radius: 5px;
     color: #fafaed;
-    
     box-shadow: none;
-    padding: 2px 5px 2px 5px;
+    z-index: 99;
+    border: none;
+    outline: none;
 }
 
-.scrollBtn:hover {
-    background-color: #e61573;
-}
-
-.scrollBtn:focus,
-.scrollBtn:active,
-.scrollBtn:visited {
+#scrollToTop:focus,
+#scrollToTop:active,
+#scrollToTop:visited {
     background-color: #5a052c;
 }
 
-.scrollBtn i {
-    padding: 5px;
-    font-size: 1.5rem;
+#scrollToTop:hover {
+    background-color: #e61573;
+}
+
+#scrollToTop i {
+    font-size: 1.75rem;
 }
 
 .f404 {
@@ -738,6 +695,10 @@ input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=url]:not(.browser-default):focus:not([readonly]) {
     border-bottom: 1px solid #e61573;
     box-shadow: none;
+}
+
+#clear-results {
+    display: none;
 }
 
 /* Media Queries */

@@ -176,6 +176,13 @@ def search():
     return render_template("reviews.html", reviews=reviews)
 
 
+@app.route("/searchM", methods=["GET", "POST"])
+def searchM():
+    searchM = request.form.get("searchM")
+    reviews = list(mongo.db.reviews.find({"$text": {"$search": searchM}}))
+    return render_template("reviews.html", reviews=reviews)
+
+
 @app.route("/logout")
 def logout():
     # remove user from session cookie

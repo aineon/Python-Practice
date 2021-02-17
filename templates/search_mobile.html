@@ -15,12 +15,12 @@
                 <br> Your next adventure awaits!</p>
             
 
-                <form action="{{ url_for('search') }}" method="post">
+                <form action="{{ url_for('searchM') }}" method="post">
                     <div class="row">
                         <div class="input-field search col s12">
                             <i class="fas fa-search prefix"></i>
-                            <input type="text" name="search" id="search" class="validate" required>
-                            <label for="search">Enter Author, Title, Genre</label>
+                            <input type="text" name="searchM" id="searchM" class="validate" required>
+                            <label for="searchM">Enter Author, Title, Genre</label>
                             <button type="submit" class="btn-small search-btn"><i class="fas fa-search left"></i>Search</button>
                         </div>  
                     </div>
