@@ -59,9 +59,9 @@
     {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                    <div id="flashMessage{{loop.index}}" class="row flashes">
-                        <div class="col s12 m4 offset-m4">
-                        <h4 class="center-align">{{ message }}</h4>
+                    <div id="flashMessage{{loop.index}}" class="flash row">
+                         <div class="col s12 m6 offset-m3">
+                        <h4 class="center-align flash-message">{{ message }}</h4>
                         </div>
                     </div>
                 {% endfor %}

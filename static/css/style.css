@@ -711,6 +711,22 @@ input[type=url]:not(.browser-default):focus:not([readonly]) {
     opacity: 1;
 }
 
+.flash.row {
+    background-color: #fafaed;
+    margin-bottom: 0;
+    transition: all 500ms ease;
+}
+.flash-message {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Tangerine', cursive;
+    line-height: 95%;
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+    color: #5a052c;
+}
+
 /* Media Queries */
 @media only screen and (min-width: 768px) {
     .form-container {
