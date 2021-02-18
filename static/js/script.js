@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
      let modals = document.querySelectorAll('.modal');
      let modalInstances = M.Modal.init(modals); 
   });
+
 /*
      let searchInput = document.querySelector("input[name='search']");
      let search = searchInput ? searchInput.value : "";
@@ -23,18 +24,19 @@ let flashMessage = document.getElementById("flashMessage{{loop.index");
 setTimeout(function() {
     flashMessage.fadeOut("fast");
 }, 2000);
-*/
-/*
+
+
 document.getElementById("search-submit").addEventListener("submit", manageBtn);
 
 document.getElementById("search").addEventListener("input", manageBtn)
 
-document.getElementById("submitBtn").addEventListener("click", manageBtn)
+
 function manageBtn() {
 let clearBtn = document.getElementById("clear-results");
-clearBtn.style.display = "block";
+clearBtn.classList.remove("clear-btn");
 };
-*/
+
+document.getElementById("submitBtn").addEventListener("click", manageBtn)
 
 document.getElementById("submitBtn").addEventListener("click", manageBtn)
 let clearBtn = document.getElementById("clear-results");
@@ -48,7 +50,7 @@ function manageBtn() {
     clearBtn.style.display = "block";
 }
   
-
+*/
 
 //Get the button:
 let scrollBtn = document.getElementById("scrollToTop");

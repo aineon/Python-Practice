@@ -517,6 +517,12 @@ form .row,
      background-color: transparent;
  }
 
+/*
+.heart-btn {
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+}*/
 .txt-center {
     text-align: center;
 }
@@ -697,8 +703,12 @@ input[type=url]:not(.browser-default):focus:not([readonly]) {
     box-shadow: none;
 }
 
-#clear-results {
-    display: none;
+.clear-btn {
+    opacity: 0;
+}
+
+.show-clear-btn {
+    opacity: 1;
 }
 
 /* Media Queries */

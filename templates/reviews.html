@@ -30,7 +30,7 @@
         <input type="text" name="search" id="search" minlength="3" class="review-search" required placeholder="Search title, author, genre..">
         <label for="search" class="hide"></label>
        <button type="submit" id="submitBtn"><i class="fas fa-search"></i></button> <br>
-       <a href="{{ url_for('reviews') }}" class="btn-small" id="clear-results">Clear Search Results</a>      
+       <a href="{{ url_for('reviews') }}" class="btn-small clear-btn" id="clear-results">Clear Search Results</a>      
     </div>
     <div class="col m4 offset-m8 center-align">
          
@@ -63,19 +63,20 @@
                             <div class="review-rating" >
                              {{ review.rating}}
                             </div>
-                            
+                           
                             <div>
                             {% if session.user|lower != review.created_by|lower %}
-                                <form method="POST" action="">   
+                              <form method="POST" action="{{ url_for('save_review', review_id=review._id) }}">   
                                 <div class="heart-checkbox">
-                                    <input type="checkbox" id="heart-checkbox{{loop.index}}" name="heart-checkbox{{loop.index}}"/>
-                                    <label for="heart-checkbox{{loop.index}}">
+                                    <input type="checkbox" id="save{{loop.index}}" name="save{{loop.index}}" onchange="this.form.submit()"/>
+                                    <label for="save{{loop.index}}">
                                         Save Review!
                                     </label>
                                 </div>
-                                </form> 
+                                </form>        
                         {% endif %}
-                          </div>
+                          </div>    
+            
                         </div> 
                    <div class="row"> 
                         <ul class="collapsible">
