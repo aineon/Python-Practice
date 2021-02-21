@@ -49,10 +49,27 @@
     <div class="row">
         <div class="col s12 m10 offset-m1">
             <div id="books" class="tabcontent">
-                <h3 class="center-align tab-heading">My Saved Books</h3>
+                
+            {% if user["favourites"]|length > 0 %}
                 <ul>
-
+                {% for favourite in user["favourites"] %}
+                    <li>
+                          <form method="POST" action="">   
+                                <div class="broken-heart-checkbox">
+                                    <input type="checkbox" id="remove{{loop.index}}" name="remove{{loop.index}}" onchange="this.form.submit()"/>
+                                    <label for="remove{{loop.index}}">
+                                        Remove Review
+                                    </label>
+                                </div>
+                                </form>      
+                    </li>
+                {% endfor %}
                 </ul>
+            {% else %}
+                     <h3>You have no books saved </h3>
+                    <a href="{{ url_for('reviews') }}" class="btn btn-small center-align">
+                        Find Books! </a>
+            {% endif %}
             </div>
         </div>
     </div>
@@ -182,7 +199,6 @@
     </div>
     </div>
     </div>
-<p>{{username.firstname}}</p>
     <div class="row">
         <div class="col s12 m10 offset-m1">
             <div id="delete" class="tabcontent">

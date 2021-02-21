@@ -19,3 +19,41 @@ function topFunction() {
 };
 
 document.getElementById("scrollToTop").addEventListener("click", topFunction);
+
+/*
+     let searchInput = document.querySelector("input[name='search']");
+     let search = searchInput ? searchInput.value : "";
+     let clearBtn = document.getElementById("clear-results");
+     function manageButton() {
+         if (searchInput.value != "") {
+             clearBtn.style.display = "block";
+         } else {
+             clearBtn.style.display = "none";
+         }
+     };
+     manageButton();
+
+
+document.getElementById("search-submit").addEventListener("submit", manageBtn);
+document.getElementById("search").addEventListener("input", manageBtn)
+
+document.getElementById("submitBtn").addEventListener("click", manageBtn)
+function manageBtn() {
+let clearBtn = document.getElementById("clear-results");
+clearBtn.style.display = "block";
+};
+
+/*
+  function manageBtn() {
+    clearBtn.style.display = "block";
+}
+*/
+
+let id, 
+    i, 
+    inputs = document.getElementsByClassName('review-search');
+    for (i = 0; i < inputs.length; i++){  
+        if (inputs[i].type == 'text' && (inputs[i].value == '' || inputs[i].value == 'n/a'))  {    
+            document.getElementById('clear-results' + inputs[i].id).style.display = 'none';  
+        };
+    };

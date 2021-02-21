@@ -6,32 +6,37 @@
 
 <main class="bg-image home-image responsive-img">
   
-
-
-<section>
- <div class="row no-margin">
-  <!--  <div class="col s12 m4 offset-m4">
-        <h2 class="profile-heading"> Welcome [User] </h2>
-    </div> -->
-    <div class= "col m4 offset-m8 search-container hide-on-small-only">
-   <form class="search-bar">
-        <input type="text" name="search" id="search" placeholder="Enter Author, Title or Genre...">
-        <button type="submit"><i class="fas fa-search"></i></button>
-    </form>
-    </div>
- </div>
-</section>       
-
+      
 <section>
     <div class="row">
-        <div class="col s10 offset-s1 m8 offset-m2 card-container">
-            <div class="card z-depth-5">
-                <div class="card-content">
-                    <span class="card-title">Welcome to Fantasitc Books and Where to Find Them</span>
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                     I am convenient because I require little markup to use effectively.</p>
+        <div class="col s10 offset-s1 m8 offset-m2 welcome-container">
+            <div class="welcome-content center-align">
+                <h1 class="title">Welcome to Fantasitc Books...</h1>
+                <h2 class="sub-title">and where to find them!</h2>
+                <div class="col s2 offset-s5 divider-top"></div>
+                <div class="col s10 offset-s1 m8 offset-m2"> 
+                    <p class="tagline">A place for book lovers</p>
                 </div>
+                    <div class="col s4 offset-s4 divider"></div>
+                    <div class="col s10 offset-s1 m8 offset-m2">  
+                        <p class="welcome-text"> 
+                            Review your favourite books, save your favourite reviews. Find your next Adventure!
+                        <blockquote> <em> "A reader lives a thousand lives before he dies. 
+                        The man who never reads lives only one" - George R.R. Martin</em></blockquote>
+                        <small><a href="{{ url_for('login') }}" class="form-link">Login</a>
+                        or
+                        <a href="{{ url_for('login') }}" class="form-link">sign up</a>
+                        and discover your next life!</small>
+                        </p> 
+                    </div>
+                    </div>
             </div>
+    </div>
+
+    <div class="row btn-container center-align">
+        <div class="col s6 offset-s3">
+            <a href="{{ url_for('login') }}" class="btn btn-small log-btn welcome-btn">Log In</a>
+            <a href="{{ url_for('register') }}" class="btn btn-small welcome-btn">Sign Up</a>
         </div>
     </div>
 </section>    

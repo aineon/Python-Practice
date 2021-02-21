@@ -159,13 +159,21 @@ def edit_review(review_id):
 @app.route("/save_review/<review_id>", methods=["GET", "POST"])
 def save_review(review_id):
     if request.method == "POST":
-        favourite = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+        # favourite = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
         user = mongo.db.users.find_one({"username": session["user"].lower()})
         mongo.db.users.update_one(
-            favourite, {"$push": {
-                "favourites": ObjectId(review_id), "saved_by": user}})
+            user, {"$push": {
+                "favourites": ObjectId(review_id)}})
         flash("Review added to favourites")
         return redirect(url_for("reviews"))
+
+
+@app.route("/get_favourites")
+def get_favourites():
+    user = mongo.db.users.find_one(
+        {"username": session["user"].lower()})
+    user_favourites = mongo.db.user.find(user["favourites"])
+    favourite_reviews = []
 
 
 @app.route("/delete_review/<review_id>")

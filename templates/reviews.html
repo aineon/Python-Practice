@@ -27,10 +27,10 @@
  <div class="row no-margin search-container reviews-page">
   <form action="{{ url_for('search') }}" method="post" id="search-submit" class="search-bar">
     <div class="input-field col m4 offset-m8 hide-on-small-only">
-        <input type="text" name="search" id="search" minlength="3" class="review-search" required placeholder="Search title, author, genre..">
+        <input type="text" name="search" id="search" minlength="3" value="" class="review-search" required placeholder="Search title, author, genre..">
         <label for="search" class="hide"></label>
        <button type="submit" id="submitBtn"><i class="fas fa-search"></i></button> <br>
-       <a href="{{ url_for('reviews') }}" class="btn-small clear-btn" id="clear-results">Clear Search Results</a>      
+       <a href="{{ url_for('reviews') }}" class="btn-small" id="clear-results">Clear Search Results</a>      
     </div>
     <div class="col m4 offset-m8 center-align">
          
@@ -47,11 +47,11 @@
             <li>
                 <div class="reviews">
                     <div class="row">
-                        <div class="col s12 m4 responsive-img">
+                        <div class="col s12 m6 l4 responsive-img">
                             <img  src="{{ review.cover }}" alt="cover image for {{review.title}}" class="book-cover" >
                             <small><em>Created by: {{ review.created_by }},<br> {{ review.date_created }}</em></small>
                        </div>     
-                        <div class="col s12 m8">
+                        <div class="col s12 m6 l8">
                             <p class="book-info"> <strong class="book-title">{{ review.title }}</strong>
                             
                         
@@ -77,8 +77,8 @@
                         {% endif %}
                           </div>    
             
-                        </div> 
-                   <div class="row"> 
+                         
+                 
                         <ul class="collapsible">
                             <li>
                                 <div class="collapsible-header">Synopsis <i class="fas fa-angle-down"></i></div>
@@ -90,12 +90,13 @@
                             </li>
                         </ul>
                     <a href="{{ review.buy }}" target="_blank" class="btn-small buy-btn right">Buy</a>
-                    </div> 
                     </div>
+                   </div>
                 </div>
             </li>
        {% endfor %}
         </ul>
+        
     </div>
     {% else %}
     <h3 class="center-align">No Results Found</h3>

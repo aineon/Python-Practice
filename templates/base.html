@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="static/favicon/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" integrity="sha512-csw0Ma4oXCAgd/d4nTcpoEoz4nYvvnk21a8VA2h2dzhPAvjbUIK6V3si7/g/HehwdunqqW18RwCJKpD7rL67Xg==" crossorigin="anonymous" />
@@ -16,7 +20,7 @@
 <body>
 
 <header>
-<div class="navbar-fixed">    
+  
 <nav class="nav-extended bg-color bg-navbar">
     <div class="nav-wrapper">
         <a href="{{ url_for('home') }}" class="brand-logo left">Fantastic Books<span class="sub-logo hide-on-med-and-down">and where to find them</span></a>
@@ -36,7 +40,7 @@
             </ul>  
     </div>
 </nav>
-</div>
+
             <ul class="sidenav" id="mobile-demo">
                 <li><h4 class="sidenav-title">Fantastic Books</h4></li>
                  <li><a href="{{ url_for('home') }}">Home</a></li>
