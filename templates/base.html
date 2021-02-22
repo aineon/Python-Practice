@@ -3,10 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="static/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
-    <link rel="manifest" href="static/favicon/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" integrity="sha512-csw0Ma4oXCAgd/d4nTcpoEoz4nYvvnk21a8VA2h2dzhPAvjbUIK6V3si7/g/HehwdunqqW18RwCJKpD7rL67Xg==" crossorigin="anonymous" />
@@ -32,6 +28,7 @@
                 <li><a href="{{ url_for('add_review') }}">Add Review</a></li>
                 <li><a href="{{ url_for('search_mobile') }}">Search</a></li>
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+               
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 
                 <li><a href="{{ url_for('login') }}">Log In</a></li> 
@@ -49,6 +46,7 @@
                 <li><a href="{{ url_for('add_review') }}">Add Review</a></li>
                 <li><a href="{{ url_for('search_mobile') }}">Search</a></li>
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+               
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 
                 <li><a href="{{ url_for('login') }}">Log In</a></li> 

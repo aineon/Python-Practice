@@ -300,7 +300,9 @@ blockquote {
 }
 
 /* Reviews */
-
+.favourites {
+    background-color: #fafaed;
+}
 .reviews {
     width: 45%;
     margin: auto;
@@ -564,17 +566,21 @@ form .row,
 .broken-heart-checkbox input[type='checkbox'] {
     display:none;
 }
+
  .broken-heart-checkbox input[type='checkbox']+ label:before {
-    font-family: 'Font Awesome 5 Free';
+    font-family: 'Font Awesome 5 Free'; 
+    content: "\f7a9";
+	font-size:1.5rem;
+    cursor:pointer;
+ }
+
+ .broken-heart-checkbox input[type='checkbox']:checked + label:before {
+   font-family: 'Font Awesome 5 Free';
     content: "\f7a9";
 	font-size:1.5rem;
     cursor:pointer;
     color: red;
- }
-
- .broken-heart-checkbox input[type='checkbox']:checked + label:before {
-     font-weight:600;
-     color: red;
+    font-weight: 600;
  }
 
  .broken-heart-checkbox label {

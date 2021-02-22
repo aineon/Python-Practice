@@ -66,7 +66,7 @@
                            
                             <div>
                             {% if session.user|lower != review.created_by|lower %}
-                              <form method="POST" action="{{ url_for('save_review', review_id=review._id) }}">   
+                              <form method="POST" action="{{ url_for('add_favourite', review_id=review._id) }}">   
                                 <div class="heart-checkbox">
                                     <input type="checkbox" id="save{{loop.index}}" name="save{{loop.index}}" onchange="this.form.submit()"/>
                                     <label for="save{{loop.index}}">
