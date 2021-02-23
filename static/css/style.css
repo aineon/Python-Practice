@@ -14,7 +14,7 @@ header {
 } 
 
 body {
-    color: #5a052c;
+    color: #541d36;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -521,6 +521,10 @@ form .row,
     background-color: #420420;
     color:#fafaed;
     border-radius: 3px;
+}
+
+.btn-small:hover {
+    background-color: #952055
 }
 
 .review-rating {
